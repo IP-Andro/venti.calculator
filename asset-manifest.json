@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/venti.calculator/static/css/main.b2a1ecec.chunk.css",
+    "main.js": "/venti.calculator/static/js/main.17a0fc66.chunk.js",
+    "main.js.map": "/venti.calculator/static/js/main.17a0fc66.chunk.js.map",
+    "runtime-main.js": "/venti.calculator/static/js/runtime-main.d387df53.js",
+    "runtime-main.js.map": "/venti.calculator/static/js/runtime-main.d387df53.js.map",
+    "static/js/2.93806570.chunk.js": "/venti.calculator/static/js/2.93806570.chunk.js",
+    "static/js/2.93806570.chunk.js.map": "/venti.calculator/static/js/2.93806570.chunk.js.map",
+    "index.html": "/venti.calculator/index.html",
+    "precache-manifest.ce32d3549d47f0aac3b2408047d50bae.js": "/venti.calculator/precache-manifest.ce32d3549d47f0aac3b2408047d50bae.js",
+    "service-worker.js": "/venti.calculator/service-worker.js",
+    "static/css/main.b2a1ecec.chunk.css.map": "/venti.calculator/static/css/main.b2a1ecec.chunk.css.map",
+    "static/js/2.93806570.chunk.js.LICENSE.txt": "/venti.calculator/static/js/2.93806570.chunk.js.LICENSE.txt",
+    "static/media/emoji.svg": "/venti.calculator/static/media/emoji.cd1ecde9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d387df53.js",
+    "static/js/2.93806570.chunk.js",
+    "static/css/main.b2a1ecec.chunk.css",
+    "static/js/main.17a0fc66.chunk.js"
+  ]
+}
