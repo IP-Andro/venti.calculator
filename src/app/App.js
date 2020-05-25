@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -11,6 +11,7 @@ import Calculator from "../components/calculator/Calculator";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
+import { UserProvider } from "../UserContext";
 function App() {
   return (
     <Router>
@@ -22,22 +23,24 @@ function App() {
       </AppBar>
       <Container maxWidth="sm">
         <div className="app-body">
-          <Paper elevation={3}>
-            <Switch>
-              <Route path="/guidelines">
-                <Guidelines />
-              </Route>
-              <Route path="/support">
-                <Support />
-              </Route>
-              <Route path="/calculator">
-                <Calculator />
-              </Route>
-              <Route path="/">
-                <PatientDetails />
-              </Route>
-            </Switch>
-          </Paper>
+          <UserProvider>
+            <Paper elevation={3}>
+              <Switch>
+                <Route path="/guidelines">
+                  <Guidelines />
+                </Route>
+                <Route path="/support">
+                  <Support />
+                </Route>
+                <Route path="/calculator">
+                  <Calculator />
+                </Route>
+                <Route path="/">
+                  <PatientDetails />
+                </Route>
+              </Switch>
+            </Paper>
+          </UserProvider>
         </div>
       </Container>
     </Router>

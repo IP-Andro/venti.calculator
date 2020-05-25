@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import "./PatientDetails.css";
+import { UserContext } from "../../UserContext";
 
 function PatientsDetails() {
-  const [diseaseType, setDiseaseType] = React.useState("ALS");
-  const [controlMode, setControlMode] = React.useState("pressure");
+  const [user, setUser] = useContext(UserContext);
 
   const handlDiseaseType = (event) => {
-    setDiseaseType(event.target.value);
+    setUser({
+      ...user,
+      diseaseType: event.target.value,
+    });
   };
   const handleControlMode = (event) => {
-    setControlMode(event.target.value);
+    setUser({
+      ...user,
+      controlMode: event.target.value,
+    });
   };
+
+  useEffect(() => {
+    console.log("render " + user.diseaseType + " " + user.controlMode);
+    return () => {
+      // console.log("unmounting cleanup for component");
+    };
+  }, [user]);
+
   return (
     <>
       <div className="form-control">
@@ -26,7 +40,7 @@ function PatientsDetails() {
           <RadioGroup
             aria-label="diseaseType"
             name="diseaseType"
-            value={diseaseType}
+            value={user.diseaseType}
             onChange={handlDiseaseType}
           >
             <FormControlLabel value="ALS" control={<Radio />} label="ALS/MND" />
@@ -40,8 +54,8 @@ function PatientsDetails() {
           </RadioGroup>
         </FormControl>
       </div>
+      <br />
       <div className="form-control">
-        <br />
         <FormControl component="fieldset">
           <FormLabel component="legend">
             Please select the ventilator control mode
@@ -49,7 +63,7 @@ function PatientsDetails() {
           <RadioGroup
             aria-label="controlMode"
             name="controlMode"
-            value={controlMode}
+            value={user.controlMode}
             onChange={handleControlMode}
           >
             <FormControlLabel
