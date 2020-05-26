@@ -6,7 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import "./PatientDetails.css";
 import { UserContext } from "../../UserContext";
-
+import { APPLICATION_CONTANTS } from "../../utils/constants";
 function PatientsDetails() {
   const [user, setUser] = useContext(UserContext);
 
@@ -43,8 +43,16 @@ function PatientsDetails() {
             value={user.diseaseType}
             onChange={handlDiseaseType}
           >
-            <FormControlLabel value="ALS" control={<Radio />} label="ALS/MND" />
-            <FormControlLabel value="COVID" control={<Radio />} label="COVID" />
+            <FormControlLabel
+              value={APPLICATION_CONTANTS.DISEASE_TYPE.ALS}
+              control={<Radio />}
+              label="ALS/MND"
+            />
+            <FormControlLabel
+              value={APPLICATION_CONTANTS.DISEASE_TYPE.COPD}
+              control={<Radio />}
+              label="COPD"
+            />
             <FormControlLabel
               value="other"
               disabled

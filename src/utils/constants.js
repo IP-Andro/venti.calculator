@@ -1,0 +1,8 @@
+const APPLICATION_CONTANTS = {
+  DISEASE_TYPE: {
+    COPD: "COPD",
+    ALS: "ALS",
+  },
+};
+
+export { APPLICATION_CONTANTS };
