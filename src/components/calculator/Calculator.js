@@ -4,7 +4,7 @@ import { AlsDisease } from "../disease/als.disease";
 import { COPDDisease } from "../disease/copd.disease";
 import { APPLICATION_CONTANTS } from "../../utils/constants";
 import FormControl from "@material-ui/core/FormControl";
-import { InputLabel, Input } from "@material-ui/core";
+import { FormLabel, Input } from "@material-ui/core";
 
 const Calculator = () => {
   const [user, setUser] = useContext(UserContext);
@@ -52,9 +52,9 @@ const Calculator = () => {
 
                 return (
                   <div className="row" key={keyIndex}>
-                    <InputLabel htmlFor={inputProp.type}>
+                    <FormLabel htmlFor={inputProp.type}>
                       {inputProp.description}
-                    </InputLabel>
+                    </FormLabel>
                     <Input
                       name={inputProp.type}
                       id={inputProp.type}
