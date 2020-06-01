@@ -26,7 +26,7 @@ const NumberConvert=(para, ip)=>
         para=Number(para);
     }
     else {
-        para="Null";
+        para=Number(ip[para]["value"]);
     }
     return para;
 }
