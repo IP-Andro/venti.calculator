@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -8,7 +8,7 @@ import PatientDetails from "../components/patient-details/PatientDetails";
 import Support from "../components/support/Support";
 import Guidelines from "../components/guidelines/Guidelines";
 import Calculator from "../components/calculator/Calculator";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import { UserProvider } from "../UserContext";
@@ -21,7 +21,7 @@ function App() {
           <NavBar />
         </Toolbar>
       </AppBar>
-      <Container maxWidth="sm">
+      <Container maxWidth="lg">
         <div className="app-body">
           <UserProvider>
             <Paper elevation={3}>

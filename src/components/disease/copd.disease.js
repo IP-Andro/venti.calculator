@@ -13,27 +13,29 @@ const COPDDisease = {
   },
   inputParameters: {
     p1: {
-      value: "",
+      value: "177",
       type: "height",
       description: "height in cm",
     },
     p2: {
-      value: "",
-      type: "dummy",
-      description: "dummy text in Kg",
+      value: "65",
+      type: "weight",
+      description: "weight text in Kg",
     },
   },
   outputParameters: {
     o1: {
-      operation: "p1-100",
+      operation: ["p1", "-", "100"],
       type: "ibw",
-      description: "caculation in Kg",
+      description: "calculation in Kg",
+      value: "<Not_Calculated>",
     },
     o2: {
-      operation: "s1*o1",
+      operation: ["s1", "*", "o1"],
       type: "vt-calculated",
       description: "in ml",
       dependsOn: ["o1"],
+      value: "<Not_Calculated>",
     },
   },
 };
