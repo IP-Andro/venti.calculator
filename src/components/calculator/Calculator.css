@@ -1,0 +1,12 @@
+FormLabel {
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+Input {
+    text-align: right;
+    clear: both;
+    float:right;
+    margin-right:15px;
+}
