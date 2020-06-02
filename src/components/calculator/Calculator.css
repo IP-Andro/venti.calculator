@@ -1,12 +1,15 @@
-FormLabel {
+.lbl {
     text-align: right;
     clear: both;
     float:left;
     margin-right:15px;
+    background-color:red;
+    text-decoration-color: aquamarine;
 }
 Input {
     text-align: right;
     clear: both;
     float:right;
     margin-right:15px;
+    background-color:red;
 }

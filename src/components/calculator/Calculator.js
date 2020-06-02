@@ -85,7 +85,7 @@ const Calculator = () => {
                       return (
                         <FormControl key={keyIndex}>
                           <FormLabel htmlFor={inputProp.type}>
-                            {inputProp.description}
+                            <div className="lbl">{inputProp.description}</div>
                           </FormLabel>
                           <Input
                             name={inputProp.type}
