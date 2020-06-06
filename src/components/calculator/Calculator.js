@@ -8,6 +8,8 @@ import { FormLabel, Input, Grid, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import SaveIcon from "@material-ui/icons/Save";
 import { calculateValueFromOperation } from "./ventilaterService";
+import "./Calculator.css";
+
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -28,6 +30,8 @@ const Calculator = () => {
       setDiseaseConfig(COPDDisease);
     } else {
       console.log("Loading Default Config  ");
+      // let ss = COPDDisease.outputParameters.o1.operation;
+      // console.log(" ss " + ss);
 
       setDiseaseConfig(COPDDisease);
     }
@@ -40,7 +44,9 @@ const Calculator = () => {
         keyName
       ].value = calculateValueFromOperation(
         diseaseConfig.outputParameters[keyName],
-        diseaseConfig.inputParameters
+        diseaseConfig.inputParameters,
+        diseaseConfig.outputParameters,
+        diseaseConfig.settings
       );
     });
     setDiseaseConfig({ ...diseaseConfig, diseaseConfig });
@@ -80,12 +86,11 @@ const Calculator = () => {
                   {Object.keys(diseaseConfig.inputParameters).map(
                     (keyName, keyIndex) => {
                       const inputProp = diseaseConfig.inputParameters[keyName];
-                      console.log("inputProp " + keyName + inputProp.type);
 
                       return (
                         <FormControl key={keyIndex}>
                           <FormLabel htmlFor={inputProp.type}>
-                            <div className="lbl">{inputProp.description}</div>
+                            <div>{inputProp.description}</div>
                           </FormLabel>
                           <Input
                             name={inputProp.type}

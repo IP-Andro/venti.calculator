@@ -1,32 +1,72 @@
-const calculateValueFromOperation = (outputProp, inputParameters) => {
-  console.log("checkk");
-  var out;
-  var oper = outputProp["operation"];
-oper[0]=NumberConvert(oper[0], inputParameters);
-oper[2]=NumberConvert(oper[2], inputParameters);
-    switch(oper[1]){
-        case "*":out=oper[0]*oper[2];
-                break;
-        case "/":out=oper[0]/oper[2];
-                break;
-        case "+":out=oper[0]+oper[2];
-                break;
-        case "-":out=oper[0]-oper[2];
-                break;
+const calculateValueFromOperation = (
+  outputProp,
+  inputParameters,
+  outputParameters,
+  settings
+) => {
+  let result = null;
+  let oper = outputProp["operation"];
+
+  const operand1 = NumberConvert(
+    oper[0],
+    inputParameters,
+    outputParameters,
+    settings
+  );
+  const operand2 = NumberConvert(
+    oper[2],
+    inputParameters,
+    outputParameters,
+    settings
+  );
+
+  switch (oper[1]) {
+    case "*":
+      result = operand1 * operand2;
+      break;
+    case "/":
+      result = operand1 / operand2;
+      break;
+    case "+":
+      result = operand1 + operand2;
+      break;
+    case "-":
+      result = operand1 - operand2;
+      break;
+    default:
+  }
+  console.log(
+    "operation found - " + JSON.stringify(oper) + " result " + result
+  );
+  return result;
+};
+
+const NumberConvert = (para, inputParameters, outputParameters, settings) => {
+  let result = null;
+  if (!isNaN(para)) {
+    result = Number(para);
+  } else {
+    if (para.indexOf("ip") === 0) {
+      //input parameter
+      result = Number(inputParameters[para].value);
+    } else if (para.indexOf("op") === 0) {
+      // output parameter
+      outputParameters[para].value = calculateValueFromOperation(
+        outputParameters[para],
+        inputParameters,
+        outputParameters
+      );
+      result = outputParameters[para].value;
+    } else if (para.indexOf("set") === 0) {
+      //settings encountered
+      if (settings[para]) {
+        result = Number(settings[para].value);
+      }
+    } else {
+      console.log("unindentified parameter type ");
     }
-let result = out;
-return result;
+  }
+  return result;
 };
 
 export { calculateValueFromOperation };
-const NumberConvert=(para, ip)=>
-{
-    var c=para.charAt(0);
-    if(typeof(c)==Number) {
-        para=Number(para);
-    }
-    else {
-        para=Number(ip[para]["value"]);
-    }
-    return para;
-}

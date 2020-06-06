@@ -1,40 +1,40 @@
 const COPDDisease = {
   settings: {
-    s1: {
-      value: "",
+    set1: {
+      value: "20",
       type: "vt-criteria",
       description: "vt in ml/kg",
     },
-    s2: {
-      value: "",
+    set2: {
+      value: "20",
       type: "",
       description: "",
     },
   },
   inputParameters: {
-    p1: {
+    ip1: {
       value: "177",
       type: "height",
       description: "height in cm",
     },
-    p2: {
+    ip2: {
       value: "65",
       type: "weight",
       description: "weight text in Kg",
     },
   },
   outputParameters: {
-    o1: {
-      operation: ["p1", "-", "100"],
+    op1: {
+      operation: ["ip1", "-", "100"],
       type: "ibw",
       description: "calculation in Kg",
       value: "<Not_Calculated>",
     },
-    o2: {
-      operation: ["s1", "*", "o1"],
+    op2: {
+      operation: ["set1", "*", "op1"],
       type: "vt-calculated",
       description: "in ml",
-      dependsOn: ["o1"],
+      dependsOn: ["op1"],
       value: "<Not_Calculated>",
     },
   },
