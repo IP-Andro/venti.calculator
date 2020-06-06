@@ -89,8 +89,9 @@ const Calculator = () => {
 
                       return (
                         <FormControl key={keyIndex}>
+                          <div className="inp">
                           <FormLabel htmlFor={inputProp.type}>
-                            <div>{inputProp.description}</div>
+                            {inputProp.description}
                           </FormLabel>
                           <Input
                             name={inputProp.type}
@@ -101,6 +102,7 @@ const Calculator = () => {
                             variant="filled"
                             required
                           />
+                          </div>
                         </FormControl>
                       );
                     }
@@ -149,7 +151,7 @@ const Calculator = () => {
               justify="center"
               alignItems="center"
             >
-              <div>Following is the output parameters ::</div>
+              <div className="out">Following is the output parameters :</div>
 
               {Object.keys(diseaseConfig.outputParameters).map(
                 (keyName, keyIndex) => {

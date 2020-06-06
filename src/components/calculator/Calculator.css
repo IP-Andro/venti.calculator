@@ -1,15 +1,13 @@
-.lbl {
-    text-align: right;
+Form Label {
     clear: both;
-    float:left;
     margin-right:15px;
-    background-color:red;
-    text-decoration-color: aquamarine;
+    display: inline-block;
 }
-Input {
-    text-align: right;
-    clear: both;
-    float:right;
-    margin-right:15px;
-    background-color:red;
+.inp {
+    margin-right:400px;
+    margin-left: 20px;
+}
+.out {
+    margin-top:-140px;
+    margin-left: 130px;
 }
