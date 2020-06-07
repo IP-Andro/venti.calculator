@@ -30,7 +30,7 @@ const Calculator = () => {
       setDiseaseConfig(COPDDisease);
     } else {
       console.log("Loading Default Config  ");
-      // let ss = COPDDisease.outputParameters.o1.operation;
+      // let ss = COPDDisease.op.o1.operation;
       // console.log(" ss " + ss);
 
       setDiseaseConfig(COPDDisease);
@@ -39,13 +39,11 @@ const Calculator = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Object.keys(diseaseConfig.outputParameters).map((keyName, keyIndex) => {
-      diseaseConfig.outputParameters[
-        keyName
-      ].value = calculateValueFromOperation(
-        diseaseConfig.outputParameters[keyName],
-        diseaseConfig.inputParameters,
-        diseaseConfig.outputParameters,
+    Object.keys(diseaseConfig.op).map((keyName, keyIndex) => {
+      diseaseConfig.op[keyName].value = calculateValueFromOperation(
+        diseaseConfig.op[keyName],
+        diseaseConfig.ip,
+        diseaseConfig.op,
         diseaseConfig.settings
       );
     });
@@ -83,30 +81,28 @@ const Calculator = () => {
             >
               <form onSubmit={handleSubmit} onChange={handleChange}>
                 <Grid item xs={12}>
-                  {Object.keys(diseaseConfig.inputParameters).map(
-                    (keyName, keyIndex) => {
-                      const inputProp = diseaseConfig.inputParameters[keyName];
+                  {Object.keys(diseaseConfig.ip).map((keyName, keyIndex) => {
+                    const inputProp = diseaseConfig.ip[keyName];
 
-                      return (
-                        <FormControl key={keyIndex}>
-                          <div className="inp">
+                    return (
+                      <FormControl key={keyIndex}>
+                        <div className="inp">
                           <FormLabel htmlFor={inputProp.type}>
                             {inputProp.description}
                           </FormLabel>
                           <Input
-                            name={inputProp.type}
-                            id={inputProp.type}
+                            name={keyName}
+                            id={keyName}
                             defaultValue={inputProp.value}
                             onChange={(e) => (inputProp.value = e.target.value)}
                             aria-describedby="my-helper-text"
                             variant="filled"
                             required
                           />
-                          </div>
-                        </FormControl>
-                      );
-                    }
-                  )}
+                        </div>
+                      </FormControl>
+                    );
+                  })}
                 </Grid>
                 {/* <Grid item xs={12}>
                 <FormControl>
@@ -153,20 +149,18 @@ const Calculator = () => {
             >
               <div className="out">Following is the output parameters :</div>
 
-              {Object.keys(diseaseConfig.outputParameters).map(
-                (keyName, keyIndex) => {
-                  const outputProp = diseaseConfig.outputParameters[keyName];
-                  return (
-                    <Grid item xs={12} key={keyIndex}>
-                      <FormControl>
-                        <FormLabel>{outputProp.description}</FormLabel>
-                        <FormLabel>{outputProp.operation}</FormLabel>
-                        <FormLabel>{outputProp.value}</FormLabel>
-                      </FormControl>
-                    </Grid>
-                  );
-                }
-              )}
+              {Object.keys(diseaseConfig.op).map((keyName, keyIndex) => {
+                const outputProp = diseaseConfig.op[keyName];
+                return (
+                  <Grid item xs={12} key={keyIndex}>
+                    <FormControl>
+                      <FormLabel>{outputProp.description}</FormLabel>
+                      <FormLabel>{outputProp.operation}</FormLabel>
+                      <FormLabel>{outputProp.value}</FormLabel>
+                    </FormControl>
+                  </Grid>
+                );
+              })}
             </Grid>
           </>
         ) : (
