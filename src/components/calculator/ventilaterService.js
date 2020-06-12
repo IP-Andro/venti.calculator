@@ -1,23 +1,8 @@
-const calculateValueFromOperation = (
-  outputProp,
-  inputParameters,
-  outputParameters,
-  settings
-) => {
+const calculateValueFromOperation = (outputProp, diseaseConfig) => {
   let result = null;
   let oper = outputProp["operation"];
-  const operand1 = NumberConvert(
-    oper[0],
-    inputParameters,
-    outputParameters,
-    settings
-  );
-  const operand2 = NumberConvert(
-    oper[2],
-    inputParameters,
-    outputParameters,
-    settings
-  );
+  const operand1 = NumberConvert(oper[0], diseaseConfig);
+  const operand2 = NumberConvert(oper[2], diseaseConfig);
 
   console.log(
     "operation found - " +
@@ -46,7 +31,10 @@ const calculateValueFromOperation = (
   return result;
 };
 
-const NumberConvert = (para, inputParameters, outputParameters, settings) => {
+const NumberConvert = (para, diseaseConfig) => {
+  const inputParameters = diseaseConfig.ip;
+  const outputParameters = diseaseConfig.op;
+  const settings = diseaseConfig.settings;
   let result = null;
   if (!isNaN(para)) {
     result = Number(para);
@@ -67,12 +55,16 @@ const NumberConvert = (para, inputParameters, outputParameters, settings) => {
         break;
       case "op":
         // output parameter
-        outputParameters[property].value = calculateValueFromOperation(
-          outputParameters[property],
-          inputParameters,
-          outputParameters,
-          settings
-        );
+        if (outputParameters[property].dependsOn) {
+          outputParameters[property].value = calculateValueFromOperation(
+            outputParameters[property],
+            diseaseConfig
+          );
+        } else {
+          outputParameters[property].value = Number(
+            outputParameters[property].value
+          );
+        }
         result = outputParameters[property].value;
         break;
       default:

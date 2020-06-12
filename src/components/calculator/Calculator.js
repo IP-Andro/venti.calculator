@@ -40,12 +40,30 @@ const Calculator = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     Object.keys(diseaseConfig.op).map((keyName, keyIndex) => {
-      diseaseConfig.op[keyName].value = calculateValueFromOperation(
-        diseaseConfig.op[keyName],
-        diseaseConfig.ip,
-        diseaseConfig.op,
-        diseaseConfig.settings
-      );
+      if (
+        diseaseConfig.op[keyName].operation &&
+        diseaseConfig.op[keyName].operation.length === 3
+      ) {
+        diseaseConfig.op[keyName].value = calculateValueFromOperation(
+          diseaseConfig.op[keyName],
+          diseaseConfig
+        );
+      }
+    });
+    Object.keys(diseaseConfig.alarms).map((keyName, keyIndex) => {
+      if (
+        diseaseConfig.alarms[keyName].operation &&
+        diseaseConfig.alarms[keyName].operation.length === 3
+      ) {
+        console.log(
+          keyName + " alarm oper " + diseaseConfig.alarms[keyName].operation
+        );
+
+        diseaseConfig.alarms[keyName].value = calculateValueFromOperation(
+          diseaseConfig.alarms[keyName],
+          diseaseConfig
+        );
+      }
     });
     setDiseaseConfig({ ...diseaseConfig, diseaseConfig });
   };
@@ -197,6 +215,37 @@ const Calculator = () => {
                     </Grid>
                   );
                 }
+              })}
+            </Grid>
+            <h3>Alarm Settings </h3>
+            <Grid
+              container
+              spacing={1}
+              direction="column"
+              justify="center"
+              alignItems="stretch"
+            >
+              <Grid item xs={12}>
+                <FormControl className="cust">
+                  <FormLabel>
+                    <span className="coloumn-name">Alarm Name</span>
+                  </FormLabel>
+                  <FormLabel className="coloumn-name">
+                    <span className="coloumn-name">Alarm Value</span>
+                  </FormLabel>
+                </FormControl>
+              </Grid>
+
+              {Object.keys(diseaseConfig.alarms).map((keyName, keyIndex) => {
+                const outputProp = diseaseConfig.alarms[keyName];
+                return (
+                  <Grid item xs={12} key={keyIndex}>
+                    <FormControl className="cust">
+                      <FormLabel>{outputProp.description}</FormLabel>
+                      <FormLabel>{outputProp.value}</FormLabel>
+                    </FormControl>
+                  </Grid>
+                );
               })}
             </Grid>
           </>
