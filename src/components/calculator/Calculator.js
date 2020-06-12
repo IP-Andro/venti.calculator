@@ -9,7 +9,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import SaveIcon from "@material-ui/icons/Save";
 import { calculateValueFromOperation } from "./ventilaterService";
 import "./Calculator.css";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
+const theme = createMuiTheme({
+  overrides: {
+    // Style sheet name ⚛️
+    MuiFormControl: {
+      // Name of the rule
+      root: {
+        "flex-direction": "row",
+      },
+    },
+  },
+});
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -77,46 +89,34 @@ const Calculator = () => {
               spacing={1}
               direction="column"
               justify="center"
-              alignItems="center"
+              alignItems="stretch"
             >
               <form onSubmit={handleSubmit} onChange={handleChange}>
-                <Grid item xs={12}>
-                  {Object.keys(diseaseConfig.ip).map((keyName, keyIndex) => {
-                    const inputProp = diseaseConfig.ip[keyName];
+                {Object.keys(diseaseConfig.ip).map((keyName, keyIndex) => {
+                  const inputProp = diseaseConfig.ip[keyName];
 
-                    return (
-                      <FormControl key={keyIndex}>
-                        <div className="inp">
-                          <FormLabel htmlFor={inputProp.type}>
-                            {inputProp.description}
-                          </FormLabel>
-                          <Input
-                            name={keyName}
-                            id={keyName}
-                            defaultValue={inputProp.value}
-                            onChange={(e) => (inputProp.value = e.target.value)}
-                            aria-describedby="my-helper-text"
-                            variant="filled"
-                            required
-                          />
-                        </div>
+                  return (
+                    <Grid item xs={12} key={keyIndex}>
+                      <FormControl className="cust" fullWidth={false}>
+                        <FormLabel
+                          className="label-test"
+                          htmlFor={inputProp.type}
+                        >
+                          {inputProp.description}
+                        </FormLabel>
+                        <Input
+                          name={keyName}
+                          id={keyName}
+                          defaultValue={inputProp.value}
+                          onChange={(e) => (inputProp.value = e.target.value)}
+                          aria-describedby="my-helper-text"
+                          variant="filled"
+                          required
+                        />
                       </FormControl>
-                    );
-                  })}
-                </Grid>
-                {/* <Grid item xs={12}>
-                <FormControl>
-                  <FormLabel htmlFor="abcd">QQ</FormLabel>
-                  <Input
-                    name="abcd"
-                    id="abcd"
-                    placeholder={2123}
-                    defaultValue={2123}
-                    aria-describedby="my-helper-text"
-                    variant="filled"
-                  />
-                </FormControl>
-              </Grid> */}
+                    </Grid>
+                  );
+                })}
                 <Grid item xs={12}>
                   <Button
                     size="small"
@@ -145,15 +145,27 @@ const Calculator = () => {
               spacing={1}
               direction="column"
               justify="center"
-              alignItems="center"
+              alignItems="stretch"
             >
-              <div className="out">Following is the output parameters :</div>
+              <Grid item xs={12}>
+                <FormControl className="cust">
+                  <FormLabel>
+                    <span className="coloumn-name">Description</span>
+                  </FormLabel>
+                  <FormLabel className="coloumn-name">
+                    <span className="coloumn-name">Formula</span>
+                  </FormLabel>
+                  <FormLabel className="coloumn-name">
+                    <span className="coloumn-name">Calculated Value</span>
+                  </FormLabel>
+                </FormControl>
+              </Grid>
 
               {Object.keys(diseaseConfig.op).map((keyName, keyIndex) => {
                 const outputProp = diseaseConfig.op[keyName];
                 return (
                   <Grid item xs={12} key={keyIndex}>
-                    <FormControl>
+                    <FormControl className="cust">
                       <FormLabel>{outputProp.description}</FormLabel>
                       <FormLabel>{outputProp.operation}</FormLabel>
                       <FormLabel>{outputProp.value}</FormLabel>

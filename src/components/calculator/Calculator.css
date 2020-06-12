@@ -1,13 +1,12 @@
-Form Label {
-    clear: both;
-    margin-right:15px;
-    display: inline-block;
+.MuiFormControl-root.cust {
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
 }
-.inp {
-    margin-right:400px;
-    margin-left: 20px;
+.label-test {
+  display: flex;
+  align-items: center;
 }
-.out {
-    margin-top:-140px;
-    margin-left: 130px;
+.coloumn-name {
+  font-weight: bold;
 }
