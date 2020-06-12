@@ -8,6 +8,21 @@ const COPDDisease = {
       value: "35",
       description: "Lung Compliance Value (ml/ cm H2O)",
     },
+    insp_trigger_senstivity: {
+      value: "2",
+      description: "Inpiration Trigger Sensitivity in LPM/cmH20",
+      display: true,
+    },
+    exp_trigger_senstivity: {
+      value: "70",
+      description: "Expiration Trigger Sensitivity in % of Peak Flow ",
+      display: true,
+    },
+    high_fio2: {
+      value: "1",
+      description: "Supplement Oxygen (LPM) ",
+      display: true,
+    },
   },
   ip: {
     height: {

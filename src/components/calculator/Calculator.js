@@ -9,19 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import SaveIcon from "@material-ui/icons/Save";
 import { calculateValueFromOperation } from "./ventilaterService";
 import "./Calculator.css";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
-const theme = createMuiTheme({
-  overrides: {
-    // Style sheet name ⚛️
-    MuiFormControl: {
-      // Name of the rule
-      root: {
-        "flex-direction": "row",
-      },
-    },
-  },
-});
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -172,6 +160,39 @@ const Calculator = () => {
                     </FormControl>
                   </Grid>
                 );
+              })}
+            </Grid>
+            <h3>Additional Settings </h3>
+            <Grid
+              container
+              spacing={1}
+              direction="column"
+              justify="center"
+              alignItems="stretch"
+            >
+              <Grid item xs={12}>
+                <FormControl className="cust">
+                  <FormLabel>
+                    <span className="coloumn-name">Setting Name</span>
+                  </FormLabel>
+                  <FormLabel className="coloumn-name">
+                    <span className="coloumn-name">Setting NameValue</span>
+                  </FormLabel>
+                </FormControl>
+              </Grid>
+
+              {Object.keys(diseaseConfig.settings).map((keyName, keyIndex) => {
+                const outputProp = diseaseConfig.settings[keyName];
+                if (outputProp.display) {
+                  return (
+                    <Grid item xs={12} key={keyIndex}>
+                      <FormControl className="cust">
+                        <FormLabel>{outputProp.description}</FormLabel>
+                        <FormLabel>{outputProp.value}</FormLabel>
+                      </FormControl>
+                    </Grid>
+                  );
+                }
               })}
             </Grid>
           </>
