@@ -1,38 +1,56 @@
 const AlsDisease = {
   settings: {
-    s1: {
-      value: "",
-      type: "",
-      description: "",
+    vt_criteria: {
+      value: "8",
+      description: "vt in ml/kg",
     },
-    s2: {
-      value: "",
-      type: "",
-      description: "",
+    lung_complaince: {
+      value: "60",
+      description: "Lung Compliance Value (ml/ cm H2O)",
+    },
+    insp_trigger_senstivity: {
+      value: "1",
+      description: "Inpiration Trigger Sensitivity in LPM/cmH20",
+      display: true,
+    },
+    exp_trigger_senstivity: {
+      value: "40",
+      description: "Expiration Trigger Sensitivity in % of Peak Flow ",
+      display: true,
+    },
+    high_fio2: {
+      value: "3",
+      description: "Supplement Oxygen (LPM) ",
+      display: true,
     },
   },
-  inputParameters: {
-    p1: {
-      value: "",
-      type: "",
-      description: "",
+  ip: {
+    height: {
+      value: "165",
+      description: "height in cm",
     },
-    p2: {
-      value: "",
-      type: "",
-      description: "",
+    weight: {
+      value: "65",
+      description: "weight text in Kg",
     },
   },
-  outputParameters: {
-    o1: {
-      operation: "",
-      type: "",
-      description: "",
+  op: {
+    ibw: {
+      operation: ["ip.height", "-", "100"],
+      description: "IBW calculation in Kg",
+      value: "<Not_Calculated>",
     },
-    o2: {
-      operation: "",
-      type: "",
-      description: "",
+    vt_calculated: {
+      operation: ["settings.vt_criteria", "*", "op.ibw"],
+      description: "Calculated VT in ml",
+      dependsOn: ["ibw"],
+      value: "<Not_Calculated>",
+    },
+    pressure_support: {
+      operation: ["op.vt_calculated", "/", "settings.lung_complaince"],
+      description: "Pressure Support (cm H2O)",
+      dependsOn: ["op.vt_calculated"],
+      value: "<Not_Calculated>",
     },
   },
 };

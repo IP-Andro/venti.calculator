@@ -26,7 +26,7 @@ const COPDDisease = {
   },
   ip: {
     height: {
-      value: "177",
+      value: "165",
       description: "height in cm",
     },
     weight: {
@@ -37,12 +37,12 @@ const COPDDisease = {
   op: {
     ibw: {
       operation: ["ip.height", "-", "100"],
-      description: "calculation in Kg",
+      description: "IBW calculation in Kg",
       value: "<Not_Calculated>",
     },
     vt_calculated: {
       operation: ["settings.vt_criteria", "*", "op.ibw"],
-      description: "in ml",
+      description: "Calculated VT in ml",
       dependsOn: ["ibw"],
       value: "<Not_Calculated>",
     },

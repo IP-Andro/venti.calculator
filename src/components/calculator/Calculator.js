@@ -61,7 +61,11 @@ const Calculator = () => {
           the selected details of Patients
         </p>
         <ul>
-          {user.diseaseType ? <li>Disease Type - {user.diseaseType}</li> : ""}
+          {user.diseaseType ? (
+            <li>Disease Type - {user.diseaseType}</li>
+          ) : (
+            <li>Using Default Disease Config</li>
+          )}
           {user.controlMode ? (
             <li>Venti Operation Mode - {user.controlMode}</li>
           ) : (
@@ -176,7 +180,7 @@ const Calculator = () => {
                     <span className="coloumn-name">Setting Name</span>
                   </FormLabel>
                   <FormLabel className="coloumn-name">
-                    <span className="coloumn-name">Setting NameValue</span>
+                    <span className="coloumn-name">Setting Value</span>
                   </FormLabel>
                 </FormControl>
               </Grid>
