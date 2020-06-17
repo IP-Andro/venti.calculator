@@ -10,3 +10,17 @@
 .coloumn-name {
   font-weight: bold;
 }
+@media screen and (max-width: 640px){
+  .flex-container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }  
+  .MuiFormControl-root.cust {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

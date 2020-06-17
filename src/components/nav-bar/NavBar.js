@@ -3,13 +3,15 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import TypoGraphy from "@material-ui/core/Typography";
-import { Home, Book, AccountBox } from "@material-ui/icons";
+import { Home, Book, AccountBox, CloseIcon } from "@material-ui/icons";
+import MenuIcon from "@material-ui/icons/Menu"
+import Collapse from '@material-ui/core/Collapse';
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 function NavBar(props) {
   return (
     <List component="nav">
-      <ListItem component="div">
+      <ListItem component="div" className="nav-full">
         <ListItemText inset>
           <TypoGraphy variant="subtitle1">
             <Link className="nav-link" to="/">
@@ -45,6 +47,12 @@ function NavBar(props) {
           </TypoGraphy>
         </ListItemText>
       </ListItem>
+
+      <ListItem className="hamburger">
+        <TypoGraphy color="inherit" variant="subtitle1">
+          <MenuIcon />
+        </TypoGraphy>
+        </ListItem>
     </List>
   );
 }

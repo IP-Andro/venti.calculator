@@ -73,7 +73,7 @@ const Calculator = () => {
 
   return (
     <>
-      <div>
+      <div className="flex-container">
         <p>
           This page directly opens the pre-configured calculator Following are
           the selected details of Patients
@@ -91,7 +91,7 @@ const Calculator = () => {
           )}
         </ul>
       </div>
-      <div>
+      <div className="flex-container">
         {diseaseConfig && diseaseConfig.settings ? (
           <>
             <Grid

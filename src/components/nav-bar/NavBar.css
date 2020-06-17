@@ -2,3 +2,9 @@
   color: white;
   text-decoration: none;
 }
+@media screen and (max-width: 640px){
+  .nav-full {
+    display: flex;
+    flex-direction: row;
+  }
+}
