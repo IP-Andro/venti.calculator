@@ -1,41 +1,99 @@
 const COPDDisease = {
   settings: {
-    s1: {
-      value: "",
-      type: "vt-criteria",
-      description: "vt in ml/kg",
+    vt_criteria: {
+      value: "6",
+      description: "vt",
+      metric: "ml/kg"
     },
-    s2: {
-      value: "",
-      type: "",
-      description: "",
+    lung_complaince: {
+      value: "35",
+      description: "Lung Compliance Value",
+      metric: "ml/ cm H2O"
+    },
+    insp_trigger_senstivity: {
+      value: "2",
+      description: "Inpiration Trigger Sensitivity",
+      metric: "LPM/cmH20",
+      display: true,
+    },
+    exp_trigger_senstivity: {
+      value: "70",
+      description: "Expiration Trigger Sensitivity",
+      metric: "% Peak Flow",
+      display: true,
+    },
+    high_fio2: {
+      value: "1",
+      description: "Supplement Oxygen",
+      metric: "LPM",
+      display: true,
     },
   },
-  inputParameters: {
-    p1: {
-      value: "177",
-      type: "height",
+  alarms: {
+    low_min_vent: {
+      value: "4",
+      description: "Low Minute Ventilation Alarm",
+    },
+    high_respiratory_rate: {
+      operation: ["op.bpm", "+", "15"],
+      description: "High Respiratory Rate Alarm",
+      value: "<Not_Calculated>",
+    },
+    low_respiratory_rate: {
+      operation: ["op.bpm", "-", "6"],
+      value: "<Not_Calculated>",
+      description: "Low Respiratory Rate Alarm",
+    },
+    apnea: {
+      value: "15",
+      description: "Apnea Alarm ",
+    },
+  },
+  ip: {
+    height: {
+      value: "165",
       description: "height in cm",
     },
-    p2: {
+    weight: {
       value: "65",
-      type: "weight",
       description: "weight text in Kg",
     },
   },
-  outputParameters: {
-    o1: {
-      operation: ["p1", "-", "100"],
-      type: "ibw",
-      description: "calculation in Kg",
+  op: {
+    ibw: {
+      operation: ["ip.height", "-", "100"],
+      description: "IBW calculation",
+      metric: "Kg",
+      dependsOn: true,
       value: "<Not_Calculated>",
     },
-    o2: {
-      operation: ["s1", "*", "o1"],
-      type: "vt-calculated",
-      description: "in ml",
-      dependsOn: ["o1"],
+    vt_calculated: {
+      operation: ["settings.vt_criteria", "*", "op.ibw"],
+      description: "VT",
+      metric:"ml",
+      dependsOn: true,
       value: "<Not_Calculated>",
+    },
+    pressure_support: {
+      operation: ["op.vt_calculated", "/", "settings.lung_complaince"],
+      description: "Pressure Support",
+      metric:"cm H2O",
+      dependsOn: true,
+      value: "<Not_Calculated>",
+    },
+    bpm: {
+      editingAllowedByUser: true,
+      description: "Respiratory Rate",
+      metric:"BPM",
+      dependsOn: false,
+      value: "16",
+    },
+    epap: {
+      editingAllowedByUser: true,
+      description: "EPAP",
+      metric:"cm H20",
+      dependsOn: false,
+      value: "6",
     },
   },
 };
