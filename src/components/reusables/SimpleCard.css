@@ -1,0 +1,44 @@
+.custom-card-container {
+  margin-top: -5px;
+}
+
+.MuiCard-root.custom-card {
+  min-width: 152px;
+  margin-top: 60px;
+  background-color: #1d262c;
+  box-shadow: 0px 11px 55px #000000;
+  width: 142px;
+  height: 126px;
+  border: 1px solid #313538;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+}
+.MuiTypography-root.card-title {
+  font-size: 12;
+  color: #fff;
+  text-align: center;
+}
+.MuiTypography-root.card-value {
+  font-size: 46px;
+  color: #fff;
+  text-align: center;
+  margin-top: -11px;
+}
+.card-unit-symbol {
+  font-size: 14px;
+  font-weight: normal;
+  font-size: normal;
+}
+.custom-bullet {
+  display: inline-block;
+  margin: 0 2px;
+  transform: scale(0.8);
+}
+.slider-container {
+  width: 90px;
+  margin-top: -25px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
