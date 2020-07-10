@@ -1,0 +1,17 @@
+.disease-heading {
+  margin-bottom: 8px;
+  font-family: "sans-serif";
+  font-weight: 700;
+  font-size: 25px;
+}
+.disease-container {
+  margin-top: 100px;
+  margin-left: 3%;
+}
+.MuiButton-root.nav-button {
+  margin-top: 50px;
+  width: 95%;
+}
+.nav-button-link {
+  color: white;
+}

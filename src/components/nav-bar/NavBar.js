@@ -6,7 +6,7 @@ import TypoGraphy from "@material-ui/core/Typography";
 import { Home, Book, AccountBox } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
-function NavBar(props) {
+function OldNavBar(props) {
   return (
     <List component="nav">
       <ListItem component="div">
@@ -49,4 +49,4 @@ function NavBar(props) {
   );
 }
 
-export default NavBar;
+export default OldNavBar;

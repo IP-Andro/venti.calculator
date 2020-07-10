@@ -1,0 +1,58 @@
+.vent-container .input-settings-container {
+  display: flex;
+  flex-direction: row;
+}
+.vent-container .MuiButton-root.reset-button {
+  margin-left: 10px;
+  margin-right: auto;
+  margin-top: 27px;
+  width: 45%;
+}
+.vent-container .MuiButton-root.submit-button {
+  margin-left: 20px;
+  margin-right: auto;
+  margin-top: 27px;
+  width: 45%;
+}
+
+.vent-container .setting-container {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+}
+.vent-container .setting-container .settings-heading {
+  text-align: left;
+  border-left: 4px solid #f50057;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  margin-left: 9px;
+}
+.vent-container .setting-container .additional-settings-heading {
+  text-align: left;
+  border-left: 4px solid #f50057;
+  margin-top: 44px;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  margin-left: 9px;
+}
+
+.vent-container .setting-container .settings-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #ffc0cb1a;
+  margin-top: 11px;
+  padding-top: 3px;
+  padding-bottom: 15px;
+}
+.vent-container .setting-container .additional-settings-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #ffc0cb1a;
+  margin-top: 11px;
+  padding-top: 3px;
+  padding-bottom: 15px;
+}

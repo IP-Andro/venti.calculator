@@ -1,49 +1,32 @@
 import React from "react";
-import "./App.css";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import TypoGraphy from "@material-ui/core/Typography";
-import NavBar from "../components/nav-bar/NavBar";
-import PatientDetails from "../components/patient-details/PatientDetails";
-import Support from "../components/support/Support";
-import Guidelines from "../components/guidelines/Guidelines";
-import Calculator from "../components/calculator/Calculator";
+import NavBar from "../components/header/NavBar";
+import { routes } from "./routes";
+import DiseaseList from "../components/disease-list/DiseaseList";
+import ControlModes from "../components/control-modes/ControlModes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import { UserProvider } from "../UserContext";
+import "./App.css";
+import VentilatorSettings from "../components/ventilator-settings/VentSettings";
+
 function App() {
   return (
-    <Router>
-      <AppBar color="primary" position="static">
-        <Toolbar>
-          <TypoGraphy color="inherit">Venti Params Calculator</TypoGraphy>
-          <NavBar />
-        </Toolbar>
-      </AppBar>
-      <Container maxWidth="lg">
-        <div className="app-body">
-          <UserProvider>
-            <Paper elevation={3}>
-              <Switch>
-                <Route path="/guidelines">
-                  <Guidelines />
-                </Route>
-                <Route path="/support">
-                  <Support />
-                </Route>
-                <Route path="/calculator">
-                  <Calculator />
-                </Route>
-                <Route path="/">
-                  <PatientDetails />
-                </Route>
-              </Switch>
-            </Paper>
-          </UserProvider>
-        </div>
-      </Container>
-    </Router>
+    <div>
+      <NavBar></NavBar>
+      <Router>
+        <Switch>
+          {/* {routes.map( (route, i) => {
+            return (<Route
+            key={i}
+            path={route.path}
+            component={route.component}
+          />)
+            })} */}
+          <Route exact path="/" component={DiseaseList} />
+          <Route exact path="/disease-type" component={DiseaseList} />
+          <Route exact path="/control-modes" component={ControlModes} />
+          <Route exact path="/settings" component={VentilatorSettings} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
