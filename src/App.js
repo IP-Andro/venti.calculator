@@ -5,7 +5,7 @@ import DiseaseList from "./components/disease-list/DiseaseList";
 import ControlModes from "./components/control-modes/ControlModes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import VentilatorSettings from "./components/ventilator-settings/settings";
+import VentilatorSettings from "./components/ventilator-settings/VentSettings";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             component={route.component}
           />)
             })} */}
-          <Route exact path="/" component={DiseaseList} />
+          <Route exact path="/" component={VentilatorSettings} />
           <Route exact path="/disease-type" component={DiseaseList} />
           <Route exact path="/control-modes" component={ControlModes} />
           <Route exact path="/settings" component={VentilatorSettings} />
