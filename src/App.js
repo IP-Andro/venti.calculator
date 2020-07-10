@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "./components/header/NavBar";
 import { routes } from "./routes";
 import DiseaseList from "./components/disease-list/DiseaseList";
-import ControlModes from "./components/control-modes/control-modes";
+import ControlModes from "./components/control-modes/ControlModes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import VentilatorSettings from "./components/ventilator-settings/settings";

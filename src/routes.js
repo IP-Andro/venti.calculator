@@ -1,5 +1,5 @@
 import DiseaseList from "./components/disease-list/DiseaseList";
-import ControlModes from "./components/control-modes/control-modes";
+import ControlModes from "./components/control-modes/ControlModes";
 
 export const routes = [
   {

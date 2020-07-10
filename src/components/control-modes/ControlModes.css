@@ -1,0 +1,28 @@
+.control-mode-container {
+  margin-top: 100px;
+  margin-left: 3%;
+}
+
+.control-mode-heading {
+  margin-bottom: -17px;
+  font-family: "sans-serif";
+  font-weight: 700;
+  font-size: 25px;
+}
+.control-mode-sub-heading {
+  margin-bottom: 8px;
+  font-family: "sans-serif";
+  font-weight: 700;
+  font-size: 25px;
+}
+.MuiButton-root.nav-button-next {
+  margin-top: 85px;
+  width: 95%;
+}
+.MuiButton-root.nav-button-back {
+  margin-top: 15px;
+  width: 95%;
+}
+.nav-button-link {
+  color: white;
+}
