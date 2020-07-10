@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import SimpleCard from "../reusables/SimpleCard";
 import Button from "@material-ui/core/Button";
-import SettingsCard from "../reusables/settings-card";
+import SettingsCard from "../reusables/SettingsCard";
 import { UserContext } from "../../UserContext";
 import { AlsDisease } from "../disease/als.disease";
 import { COPDDisease } from "../disease/copd.disease";
