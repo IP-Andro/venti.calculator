@@ -105,6 +105,7 @@ export default function VentilatorSettings() {
               const outputProp = diseaseConfig.op[keyName];
               return (
                 <SettingsCard
+                  key={keyIndex}
                   settingName={outputProp.description}
                   metric={outputProp.metric}
                   value={outputProp.value}
@@ -125,6 +126,7 @@ export default function VentilatorSettings() {
               if (outputProp.display) {
                 return (
                   <SettingsCard
+                    key={keyIndex}
                     settingName={outputProp.description}
                     metric={outputProp.metric}
                     value={outputProp.value}

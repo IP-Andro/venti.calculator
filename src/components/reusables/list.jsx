@@ -46,16 +46,16 @@ export default function SimpleList(props) {
         boxShadow: "0px 11px 55px #000000",
       }}
     >
-      {list.map((item, i) => {
+      {list.map((item, keyIndex) => {
         return (
-          <div>
+          <div key={keyIndex}>
             <ListItem
               alignItems="flex-start"
-              style={i % 2 !== 0 ? { background: "#1D262C" } : {}}
+              style={keyIndex % 2 !== 0 ? { background: "#1D262C" } : {}}
             >
               <FormControlLabel
                 value={item.val}
-                select={true}
+                select="true"
                 checked={false}
                 color="#F41062"
                 control={
@@ -67,7 +67,7 @@ export default function SimpleList(props) {
                     }}
                   />
                 }
-                disableRipple
+                // disableRipple
               />
               <ListItemText
                 primary={item.item}
