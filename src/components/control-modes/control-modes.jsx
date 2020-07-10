@@ -14,7 +14,9 @@ export default function ControlModes() {
         });
       };
     const controlModes = [
-        { item: "Volume control",val: "volume"}, {item: "Pressure control", val: "pressure"}, {item: "Others", val:"other" }];
+        { item: "Volume control",val: "volume"}, 
+        {item: "Pressure control", val: "pressure"}, 
+        {item: "Others", val:"other" }];
     return (
     <div style={{marginTop:"100px", marginLeft:"3%"}}>
         <h1 style={{"marginBottom":"-17px","fontFamily":"sans-serif","fontWeight":"700","fontSize":"25px"}}>VENTILATOR</h1>
