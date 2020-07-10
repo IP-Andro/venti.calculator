@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import SimpleCard from "../reusables/card";
+import SimpleCard from "../reusables/SimpleCard";
 import Button from "@material-ui/core/Button";
 import SettingsCard from "../reusables/settings-card";
 import { UserContext } from "../../UserContext";
