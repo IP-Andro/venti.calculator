@@ -1,6 +1,22 @@
 {
-  "main.css": "static/css/main.fb0d8a77.css",
-  "main.css.map": "static/css/main.fb0d8a77.css.map",
-  "main.js": "static/js/main.4ccfa09f.js",
-  "main.js.map": "static/js/main.4ccfa09f.js.map"
+  "files": {
+    "main.css": "/venti.calculator/static/css/main.13144b3d.chunk.css",
+    "main.js": "/venti.calculator/static/js/main.e5e9b583.chunk.js",
+    "main.js.map": "/venti.calculator/static/js/main.e5e9b583.chunk.js.map",
+    "runtime-main.js": "/venti.calculator/static/js/runtime-main.09ccd3e8.js",
+    "runtime-main.js.map": "/venti.calculator/static/js/runtime-main.09ccd3e8.js.map",
+    "static/js/2.cb6d3718.chunk.js": "/venti.calculator/static/js/2.cb6d3718.chunk.js",
+    "static/js/2.cb6d3718.chunk.js.map": "/venti.calculator/static/js/2.cb6d3718.chunk.js.map",
+    "index.html": "/venti.calculator/index.html",
+    "precache-manifest.b73e3f13c5049d9b5b972da3ddd9327f.js": "/venti.calculator/precache-manifest.b73e3f13c5049d9b5b972da3ddd9327f.js",
+    "service-worker.js": "/venti.calculator/service-worker.js",
+    "static/css/main.13144b3d.chunk.css.map": "/venti.calculator/static/css/main.13144b3d.chunk.css.map",
+    "static/js/2.cb6d3718.chunk.js.LICENSE.txt": "/venti.calculator/static/js/2.cb6d3718.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09ccd3e8.js",
+    "static/js/2.cb6d3718.chunk.js",
+    "static/css/main.13144b3d.chunk.css",
+    "static/js/main.e5e9b583.chunk.js"
+  ]
 }
