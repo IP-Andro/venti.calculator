@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import "./NavBar.css";
+import "./NavBars.css";
 
 function HomeIcon(props) {
   return (

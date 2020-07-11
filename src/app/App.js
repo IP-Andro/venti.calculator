@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/header/NavBar";
+import NavBar from "../components/header/NavBars";
 import { routes } from "./routes";
 import DiseaseList from "../components/disease-list/DiseaseList";
 import ControlModes from "../components/control-modes/ControlModes";
@@ -8,6 +8,8 @@ import "./App.css";
 import VentilatorSettings from "../components/ventilator-settings/VentSettings";
 
 function App() {
+  console.log("APP loaded");
+
   return (
     <div>
       <NavBar></NavBar>
