@@ -31,7 +31,7 @@ function PatientsDetails() {
   }, [user]);
 
   return (
-    <>
+    <React.Fragment>
       <div className="form-control">
         <FormControl component="fieldset">
           <FormLabel component="legend">
@@ -93,7 +93,7 @@ function PatientsDetails() {
           </RadioGroup>
         </FormControl>
       </div>
-    </>
+    </React.Fragment>
   );
 }
 export default PatientsDetails;

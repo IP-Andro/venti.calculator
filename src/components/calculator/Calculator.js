@@ -50,7 +50,7 @@ const Calculator = () => {
   };
 
   return (
-    <>
+    <React.Fragment>
       <div>
         <p>
           This page directly opens the pre-configured calculator Following are
@@ -67,7 +67,7 @@ const Calculator = () => {
       </div>
       <div>
         {diseaseConfig && diseaseConfig.settings ? (
-          <>
+          <React.Fragment>
             <Grid
               container
               spacing={1}
@@ -161,12 +161,12 @@ const Calculator = () => {
                 }
               )}
             </Grid>
-          </>
+          </React.Fragment>
         ) : (
           "Disease Config Not Loaded"
         )}
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
