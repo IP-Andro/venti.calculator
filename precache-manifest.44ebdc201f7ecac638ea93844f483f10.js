@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7daef2d11b8472d991964f68320df07f",
+    "revision": "c816c47a253361ad6dbc7994e30618ed",
     "url": "/venti.calculator/index.html"
   },
   {
-    "revision": "37a751240005b6fbd6e2",
+    "revision": "76a424251d7dbf5e9134",
     "url": "/venti.calculator/static/css/main.13144b3d.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/venti.calculator/static/js/2.cb6d3718.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "37a751240005b6fbd6e2",
-    "url": "/venti.calculator/static/js/main.e5e9b583.chunk.js"
+    "revision": "76a424251d7dbf5e9134",
+    "url": "/venti.calculator/static/js/main.9e4d9b35.chunk.js"
   },
   {
     "revision": "5b54bb953565e737b309",
