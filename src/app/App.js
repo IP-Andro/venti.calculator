@@ -3,7 +3,7 @@ import NavBar from "../components/header/NavBars";
 import { routes } from "./routes";
 import DiseaseList from "../components/disease-list/DiseaseList";
 import ControlModes from "../components/control-modes/ControlModes";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import VentilatorSettings from "../components/ventilator-settings/VentSettings";
 
@@ -13,21 +13,22 @@ function App() {
   return (
     <div>
       <NavBar></NavBar>
-      <Router>
+      <HashRouter basename="/">
         <Switch>
-          {/* {routes.map( (route, i) => {
-            return (<Route
-            key={i}
-            path={route.path}
-            component={route.component}
-          />)
-            })} */}
-          <Route exact path="/" component={DiseaseList} />
-          <Route exact path="/disease-type" component={DiseaseList} />
-          <Route exact path="/control-modes" component={ControlModes} />
-          <Route exact path="/settings" component={VentilatorSettings} />
+          <Route exact path="/">
+            <DiseaseList />
+          </Route>
+          <Route exact path="/disease-type">
+            <DiseaseList />
+          </Route>
+          <Route exact path="/control-modes">
+            <ControlModes />
+          </Route>
+          <Route exact path="/settings">
+            <VentilatorSettings />
+          </Route>
         </Switch>
-      </Router>
+      </HashRouter>
     </div>
   );
 }

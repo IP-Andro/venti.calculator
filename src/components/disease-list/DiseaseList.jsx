@@ -6,6 +6,8 @@ import { UserContext } from "../../UserContext";
 import { APPLICATION_CONTANTS } from "../../utils/constants";
 import "./DiseaseList.css";
 export default function DiseaseList() {
+  console.log("diseaselist com loaded");
+
   const [user, setUser] = useContext(UserContext);
   const handlDiseaseType = (event) => {
     setUser({
