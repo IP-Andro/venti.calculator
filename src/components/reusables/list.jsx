@@ -72,11 +72,11 @@ export default function SimpleList(props) {
               <ListItemText
                 primary={item.item}
                 secondary={
-                  <>
+                  <React.Fragment>
                     <span style={{ color: "white", fontSize: "14px" }}>
                       {item.desc !== undefined ? item.desc : ""}
                     </span>
-                  </>
+                  </React.Fragment>
                 }
               />
             </ListItem>
