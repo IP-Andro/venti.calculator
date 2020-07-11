@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/venti.calculator/precache-manifest.44ebdc201f7ecac638ea93844f483f10.js"
+  "/venti.calculator/precache-manifest.fc0c8cf8f7f750e9bd85ea3aa6897983.js"
 );
 
 self.addEventListener('message', (event) => {
