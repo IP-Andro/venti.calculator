@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/venti.calculator/static/css/main.13144b3d.chunk.css",
-    "main.js": "/venti.calculator/static/js/main.9e4d1bc5.chunk.js",
-    "main.js.map": "/venti.calculator/static/js/main.9e4d1bc5.chunk.js.map",
+    "main.js": "/venti.calculator/static/js/main.c866d528.chunk.js",
+    "main.js.map": "/venti.calculator/static/js/main.c866d528.chunk.js.map",
     "runtime-main.js": "/venti.calculator/static/js/runtime-main.09ccd3e8.js",
     "runtime-main.js.map": "/venti.calculator/static/js/runtime-main.09ccd3e8.js.map",
-    "static/js/2.7264fcee.chunk.js": "/venti.calculator/static/js/2.7264fcee.chunk.js",
-    "static/js/2.7264fcee.chunk.js.map": "/venti.calculator/static/js/2.7264fcee.chunk.js.map",
+    "static/js/2.1c948ff5.chunk.js": "/venti.calculator/static/js/2.1c948ff5.chunk.js",
+    "static/js/2.1c948ff5.chunk.js.map": "/venti.calculator/static/js/2.1c948ff5.chunk.js.map",
     "index.html": "/venti.calculator/index.html",
-    "precache-manifest.fc0c8cf8f7f750e9bd85ea3aa6897983.js": "/venti.calculator/precache-manifest.fc0c8cf8f7f750e9bd85ea3aa6897983.js",
+    "precache-manifest.c1d542702cec8c71c0e3b83f774f88d9.js": "/venti.calculator/precache-manifest.c1d542702cec8c71c0e3b83f774f88d9.js",
     "service-worker.js": "/venti.calculator/service-worker.js",
     "static/css/main.13144b3d.chunk.css.map": "/venti.calculator/static/css/main.13144b3d.chunk.css.map",
-    "static/js/2.7264fcee.chunk.js.LICENSE.txt": "/venti.calculator/static/js/2.7264fcee.chunk.js.LICENSE.txt"
+    "static/js/2.1c948ff5.chunk.js.LICENSE.txt": "/venti.calculator/static/js/2.1c948ff5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.09ccd3e8.js",
-    "static/js/2.7264fcee.chunk.js",
+    "static/js/2.1c948ff5.chunk.js",
     "static/css/main.13144b3d.chunk.css",
-    "static/js/main.9e4d1bc5.chunk.js"
+    "static/js/main.c866d528.chunk.js"
   ]
 }
