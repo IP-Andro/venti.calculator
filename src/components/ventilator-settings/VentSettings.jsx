@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import SimpleCard from "../reusables/SimpleCard";
 import Button from "@material-ui/core/Button";
 import SettingsCard from "../reusables/SettingsCard";
@@ -11,6 +12,7 @@ import "./VentSettings.css";
 export default function VentilatorSettings() {
   const [user, setUser] = useContext(UserContext);
   const [diseaseConfig, setDiseaseConfig] = useState(null);
+  const [showSettings, setShowSettings] = useState(false);
   useEffect(() => {
     if (user.diseaseType === APPLICATION_CONTANTS.DISEASE_TYPE.ALS) {
       console.log("Load Disease Config of " + user.diseaseType);
@@ -30,6 +32,7 @@ export default function VentilatorSettings() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setShowSettings(true);
     Object.keys(diseaseConfig.op).map((keyName, keyIndex) => {
       if (
         diseaseConfig.op[keyName].operation &&
@@ -58,6 +61,10 @@ export default function VentilatorSettings() {
     });
     setDiseaseConfig({ ...diseaseConfig, diseaseConfig });
   };
+  const handleReset = (event) => {
+    event.preventDefault();
+    setShowSettings(false);
+  };
   const handleChange = (event) => {
     // console.log("someting changed " + event.target.value);
   };
@@ -84,7 +91,12 @@ export default function VentilatorSettings() {
           changeHandler={handleIpChanges}
         />
       </div>
-      <Button className="reset-button" variant="contained" color="secondary">
+      <Button
+        onClick={handleReset}
+        className="reset-button"
+        variant="contained"
+        color="secondary"
+      >
         Reset
       </Button>
       <Button
@@ -96,48 +108,54 @@ export default function VentilatorSettings() {
         Calculate
       </Button>
       <div className="setting-container">
-        <div className="settings-heading">
-          <span style={{ marginLeft: "9px" }}>Settings</span>
-        </div>
-        <div className="settings-section">
-          {diseaseConfig && diseaseConfig.op ? (
-            Object.keys(diseaseConfig.op).map((keyName, keyIndex) => {
-              const outputProp = diseaseConfig.op[keyName];
-              return (
-                <SettingsCard
-                  key={keyIndex}
-                  settingName={outputProp.description}
-                  metric={outputProp.metric}
-                  value={outputProp.value}
-                />
-              );
-            })
-          ) : (
-            <div></div>
-          )}
-        </div>
-        <div className="additional-settings-heading">
-          <span style={{ marginLeft: "9px" }}>Additional settings</span>
-        </div>
-        <div className="additional-settings-section">
-          {diseaseConfig && diseaseConfig.settings ? (
-            Object.keys(diseaseConfig.settings).map((keyName, keyIndex) => {
-              const outputProp = diseaseConfig.settings[keyName];
-              if (outputProp.display) {
-                return (
-                  <SettingsCard
-                    key={keyIndex}
-                    settingName={outputProp.description}
-                    metric={outputProp.metric}
-                    value={outputProp.value}
-                  />
-                );
-              }
-            })
-          ) : (
-            <div></div>
-          )}
-        </div>
+        {showSettings ? (
+          <>
+            <div className="settings-heading">
+              <span style={{ marginLeft: "9px" }}>Settings</span>
+            </div>
+            <div className="settings-section">
+              {diseaseConfig && diseaseConfig.op ? (
+                Object.keys(diseaseConfig.op).map((keyName, keyIndex) => {
+                  const outputProp = diseaseConfig.op[keyName];
+                  return (
+                    <SettingsCard
+                      key={keyIndex}
+                      settingName={outputProp.description}
+                      metric={outputProp.metric}
+                      value={outputProp.value}
+                    />
+                  );
+                })
+              ) : (
+                <div></div>
+              )}
+            </div>
+            <div className="additional-settings-heading">
+              <span style={{ marginLeft: "9px" }}>Additional settings</span>
+            </div>
+            <div className="additional-settings-section">
+              {diseaseConfig && diseaseConfig.settings ? (
+                Object.keys(diseaseConfig.settings).map((keyName, keyIndex) => {
+                  const outputProp = diseaseConfig.settings[keyName];
+                  if (outputProp.display) {
+                    return (
+                      <SettingsCard
+                        key={keyIndex}
+                        settingName={outputProp.description}
+                        metric={outputProp.metric}
+                        value={outputProp.value}
+                      />
+                    );
+                  }
+                })
+              ) : (
+                <div></div>
+              )}
+            </div>
+          </>
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );

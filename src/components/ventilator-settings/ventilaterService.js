@@ -28,7 +28,7 @@ const calculateValueFromOperation = (outputProp, diseaseConfig) => {
     default:
   }
 
-  return result;
+  return Math.round(result);
 };
 
 const NumberConvert = (para, diseaseConfig) => {

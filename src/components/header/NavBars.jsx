@@ -23,9 +23,9 @@ export default function NavBar() {
     <div className="nav-bar-flex">
       <AppBar position="static" className="nav-bar-root" position="static">
         <Toolbar>
-          <HomeIcon color="secondary">
-            <Link to="/disease-type">home</Link>
-          </HomeIcon>
+          <Link to="/disease-type">
+            <HomeIcon color="secondary">home</HomeIcon>
+          </Link>
           <Typography variant="h6" className="app-title">
             V E N T I<span className="app-sub-title"> C A L</span>
           </Typography>

@@ -8,12 +8,10 @@ import "./App.css";
 import VentilatorSettings from "../components/ventilator-settings/VentSettings";
 
 function App() {
-  console.log("APP loaded");
-
   return (
     <div>
-      <NavBar></NavBar>
       <HashRouter basename="/">
+        <NavBar></NavBar>
         <Switch>
           <Route exact path="/">
             <DiseaseList />
