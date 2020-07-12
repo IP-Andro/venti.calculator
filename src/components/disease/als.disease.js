@@ -3,29 +3,29 @@ const AlsDisease = {
     vt_criteria: {
       value: "8",
       description: "vt",
-      metric: "ml/kg"
+      metric: "ml/kg",
     },
     lung_complaince: {
       value: "60",
       description: "Lung Compliance Value",
-      metric:"ml/ cm H2O"
+      metric: "ml/ cm H2O",
     },
     insp_trigger_senstivity: {
       value: "1",
       description: "Inpiration Trigger Sensitivity",
-      metric:"LPM/cmH20",
+      metric: "LPM/cmH20",
       display: true,
     },
     exp_trigger_senstivity: {
       value: "40",
       description: "Expiration Trigger Sensitivity",
-      metric:"% Peak Flow",
+      metric: "% Peak Flow",
       display: true,
     },
     high_fio2: {
       value: "3",
       description: "Supplement Oxygen",
-      metric:"LPM",
+      metric: "LPM",
       display: true,
     },
   },
@@ -52,10 +52,14 @@ const AlsDisease = {
   ip: {
     height: {
       value: "165",
+      property: "height",
+      unit: "cm",
       description: "height in cm",
     },
     weight: {
       value: "65",
+      property: "weight",
+      unit: "kg",
       description: "weight text in Kg",
     },
   },
@@ -63,35 +67,35 @@ const AlsDisease = {
     ibw: {
       operation: ["ip.height", "-", "100"],
       description: "IBW",
-      metric:"Kg",
+      metric: "Kg",
       value: "<Not_Calculated>",
       dependsOn: true,
     },
     vt_calculated: {
       operation: ["settings.vt_criteria", "*", "op.ibw"],
       description: "VT",
-      metric:"ml",
+      metric: "ml",
       dependsOn: true,
       value: "<Not_Calculated>",
     },
     pressure_support: {
       operation: ["op.vt_calculated", "/", "settings.lung_complaince"],
       description: "Pressure Support",
-      metric:"cm H2O",
+      metric: "cm H2O",
       dependsOn: true,
       value: "<Not_Calculated>",
     },
     bpm: {
       editingAllowedByUser: true,
       description: "Respiratory Rate",
-      metric:"BPM",
+      metric: "BPM",
       dependsOn: false,
       value: "15",
     },
     epap: {
       editingAllowedByUser: true,
       description: "EPAP",
-      metric:"cm H20",
+      metric: "cm H20",
       dependsOn: false,
       value: "6",
     },

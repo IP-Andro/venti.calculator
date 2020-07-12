@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -50,6 +50,9 @@ const PrettoSlider = withStyles({
 export default function SimpleCard(props) {
   // const classes = useStyles();
   // const bull = <span className={classes.bullet}>•</span>;
+  let [displayValue, setDisplayValue] = useState(Number(props.min));
+  const minVal = Number(props.min);
+  const maxVal = minVal * 10;
   const changeHandler = props.changeHandler;
   return (
     <Card className="custom-card">
@@ -59,16 +62,16 @@ export default function SimpleCard(props) {
             {props.metric}
           </Typography>
           <Typography className="card-value">
-            175
+            {displayValue}
             <span className="card-unit-symbol">{props.symbol}</span>
           </Typography>
         </CardContent>
         <div className="slider-container">
           <PrettoSlider
-            min={props.min}
-            max={props.max}
+            min={minVal}
+            max={maxVal}
             onChange={(e, newVal) => {
-              newValue = newVal;
+              setDisplayValue(newVal);
               changeHandler(e, newVal, props.metric.toLowerCase());
             }}
             valueLabelDisplay="auto"

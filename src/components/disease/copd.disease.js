@@ -3,12 +3,12 @@ const COPDDisease = {
     vt_criteria: {
       value: "6",
       description: "vt",
-      metric: "ml/kg"
+      metric: "ml/kg",
     },
     lung_complaince: {
       value: "35",
       description: "Lung Compliance Value",
-      metric: "ml/ cm H2O"
+      metric: "ml/ cm H2O",
     },
     insp_trigger_senstivity: {
       value: "2",
@@ -52,10 +52,14 @@ const COPDDisease = {
   ip: {
     height: {
       value: "165",
+      property: "height",
+      unit: "cm",
       description: "height in cm",
     },
     weight: {
       value: "65",
+      property: "weight",
+      unit: "kg",
       description: "weight text in Kg",
     },
   },
@@ -70,28 +74,28 @@ const COPDDisease = {
     vt_calculated: {
       operation: ["settings.vt_criteria", "*", "op.ibw"],
       description: "VT",
-      metric:"ml",
+      metric: "ml",
       dependsOn: true,
       value: "<Not_Calculated>",
     },
     pressure_support: {
       operation: ["op.vt_calculated", "/", "settings.lung_complaince"],
       description: "Pressure Support",
-      metric:"cm H2O",
+      metric: "cm H2O",
       dependsOn: true,
       value: "<Not_Calculated>",
     },
     bpm: {
       editingAllowedByUser: true,
       description: "Respiratory Rate",
-      metric:"BPM",
+      metric: "BPM",
       dependsOn: false,
       value: "16",
     },
     epap: {
       editingAllowedByUser: true,
       description: "EPAP",
-      metric:"cm H20",
+      metric: "cm H20",
       dependsOn: false,
       value: "6",
     },

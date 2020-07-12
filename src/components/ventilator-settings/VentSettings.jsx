@@ -76,20 +76,19 @@ export default function VentilatorSettings() {
   return (
     <div className="vent-container">
       <div className="input-settings-container">
-        <SimpleCard
-          metric="HEIGHT"
-          symbol="cm"
-          min={175}
-          max={375}
-          changeHandler={handleIpChanges}
-        />
-        <SimpleCard
-          metric="WEIGHT"
-          symbol="kg"
-          min={10}
-          max={300}
-          changeHandler={handleIpChanges}
-        />
+        {diseaseConfig &&
+          Object.keys(diseaseConfig.ip).map((keyName, keyIndex) => {
+            const inputProp = diseaseConfig.ip[keyName];
+            return (
+              <SimpleCard
+                key={keyIndex}
+                metric={inputProp.property}
+                symbol={inputProp.unit}
+                min={inputProp.value}
+                changeHandler={handleIpChanges}
+              />
+            );
+          })}
       </div>
       <Button
         onClick={handleReset}
