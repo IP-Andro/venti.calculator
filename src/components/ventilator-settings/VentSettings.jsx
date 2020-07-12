@@ -12,21 +12,25 @@ import "./VentSettings.css";
 export default function VentilatorSettings() {
   const [user, setUser] = useContext(UserContext);
   const [diseaseConfig, setDiseaseConfig] = useState(null);
+  // const [oriDiseaseConfig, setOriDiseaseConfig] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
   useEffect(() => {
     if (user.diseaseType === APPLICATION_CONTANTS.DISEASE_TYPE.ALS) {
       console.log("Load Disease Config of " + user.diseaseType);
 
       setDiseaseConfig(AlsDisease);
+      // setOriDiseaseConfig(AlsDisease);
     } else if (user.diseaseType === APPLICATION_CONTANTS.DISEASE_TYPE.COPD) {
       console.log("Load Disease Config of " + user.diseaseType);
       setDiseaseConfig(COPDDisease);
+      // setOriDiseaseConfig(COPDDisease);
     } else {
       console.log("Loading Default Config  ");
       // let ss = COPDDisease.op.o1.operation;
       // console.log(" ss " + ss);
 
-      setDiseaseConfig(AlsDisease);
+      setDiseaseConfig(JSON.parse(JSON.stringify(AlsDisease)));
+      // setOriDiseaseConfig(JSON.parse(JSON.stringify(AlsDisease)));
     }
   }, [user.diseaseType]);
 
@@ -60,10 +64,19 @@ export default function VentilatorSettings() {
       }
     });
     setDiseaseConfig({ ...diseaseConfig, diseaseConfig });
+    console.log(" default " + diseaseConfig.ip["height"].value);
+    // console.log(" ori " + oriDiseaseConfig.ip["height"].value);
   };
   const handleReset = (event) => {
     event.preventDefault();
     setShowSettings(false);
+    // console.log("ori");
+    // console.log(JSON.stringify(oriDiseaseConfig));
+    // console.log("copy");
+    // console.log(JSON.stringify(diseaseConfig));
+
+    // setDiseaseConfig(JSON.parse(JSON.stringify(oriDiseaseConfig)));
+    // setDiseaseConfig({ ...oriDiseaseConfig, ip: oriDiseaseConfig.ip });
   };
   const handleChange = (event) => {
     // console.log("someting changed " + event.target.value);
@@ -146,6 +159,26 @@ export default function VentilatorSettings() {
                       />
                     );
                   }
+                })
+              ) : (
+                <div></div>
+              )}
+            </div>
+            <div className="alarm-heading">
+              <span style={{ marginLeft: "9px" }}>Alarm settings</span>
+            </div>
+            <div className="alarm-section">
+              {diseaseConfig && diseaseConfig.alarms ? (
+                Object.keys(diseaseConfig.alarms).map((keyName, keyIndex) => {
+                  const outputAlarm = diseaseConfig.alarms[keyName];
+                  return (
+                    <SettingsCard
+                      key={keyIndex}
+                      settingName={outputAlarm.description}
+                      metric=""
+                      value={outputAlarm.value}
+                    />
+                  );
                 })
               ) : (
                 <div></div>
